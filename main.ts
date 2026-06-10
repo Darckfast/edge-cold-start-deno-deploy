@@ -1,7 +1,12 @@
 export function handler(req: Request): Response {
-  return new Response(JSON.stringify({ time: Date.now() }), {
-    headers: { "content-type": "application/json" },
-  });
+  return new Response(
+    JSON.stringify({
+      time: Temporal.Now.instant().epochNanoseconds * BigInt(1000),
+    }),
+    {
+      headers: { "content-type": "application/json" },
+    },
+  );
 }
 
 if (import.meta.main) {
