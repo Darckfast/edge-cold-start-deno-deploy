@@ -1,7 +1,7 @@
 export function handler(req: Request): Response {
   return new Response(
     JSON.stringify({
-      time: Temporal.Now.instant().epochNanoseconds * BigInt(1000),
+      time: performance.now() * 1000,
     }),
     {
       headers: { "content-type": "application/json" },
