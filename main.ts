@@ -4,7 +4,10 @@ export function handler(req: Request): Response {
       time: Temporal.Now.instant().epochMilliseconds * 1000,
     }),
     {
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        "x-datacenter": Deno.env.get("DENO_REGION") || "unknown",
+      },
     },
   );
 }
