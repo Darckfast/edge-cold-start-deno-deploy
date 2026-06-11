@@ -6,7 +6,6 @@ export function handler(req: Request): Response {
     {
       headers: {
         "content-type": "application/json",
-        "x-datacenter": Deno.env.get("DENO_REGION") || "unknown",
       },
     },
   );
